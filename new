@@ -6,7 +6,7 @@ cd $ATCODER_BASE
 if [ "$2" = clean ]; then
     cargo clean
 else
-    cargo clean -p origin
+    cargo clean -p misc
 fi
 cd $ATCODER_HOME
 
@@ -19,4 +19,4 @@ else
     ln -s $ATCODER_BASE/target target
 fi
 
-code -r .
+code .
