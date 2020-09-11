@@ -1,0 +1,22 @@
+#!/bin/bash
+ATCODER_HOME=~/cargo-atcoder
+ATCODER_BASE=$ATCODER_HOME/misc
+
+cd $ATCODER_BASE
+if [ "$2" = clean ]; then
+    cargo clean
+else
+    cargo clean -p origin
+fi
+cd $ATCODER_HOME
+
+if [ -e $1 ]; then
+    cd $ATCODER_HOME/$1
+else
+    cd $ATCODER_HOME
+    cargo atcoder new --skip-warmup $1
+    cd $ATCODER_HOME/$1
+    ln -s $ATCODER_BASE/target target
+fi
+
+code -r .
